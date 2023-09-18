@@ -3,8 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script type="module" src="/src/main.ts" defer></script>
-    <link rel="stylesheet" href="src/assets/styles.css" />
+
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
@@ -13,7 +12,51 @@
       referrerpolicy="no-referrer"
     />
 
-    <title>To-do list</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+      rel="stylesheet"
+    />
+
+    <script type="module" src="/src/main.ts" defer></script>
+    <link rel="stylesheet" href="src/assets/styles.css" />
+    <title>Todo list</title>
   </head>
-  <body></body>
+  <body>
+    <header>
+      <h1 class="header__title">Todo list</h1>
+      <button class="btn-with-icon btn-change-theme">
+        <i class="fa-solid fa-eye btn-with-icon-i"></i>
+      </button>
+    </header>
+
+    <section class="app-section">
+      <form action="" class="todo-list-form">
+        <div class="form-div">
+          <label for="input-text" class="form-div__label"
+            >Write your todo:</label
+          >
+          <input type="text" id="input-text" class="form-div__input" />
+          <button class="btn-with-icon btn-add-todo">
+            <i class="fa-solid fa-arrow-right"></i>
+          </button>
+        </div>
+      </form>
+
+      <section class="todo-list-container">
+        <ul class="todo-list">
+          <li class="todo-list-item">
+            <button class="btn-with-icon btn-check-todo">
+              <i class="fa-solid fa-check btn-with-icon-i"></i>
+            </button>
+            <p class="todo-list-item__p">I have to do this thing</p>
+            <button class="btn-with-icon btn-remove-todo">
+              <i class="fa-solid fa-trash btn-with-icon-i"></i>
+            </button>
+          </li>
+        </ul>
+      </section>
+    </section>
+  </body>
 </html>

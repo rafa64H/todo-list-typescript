@@ -6,4 +6,118 @@
   box-sizing: border-box;
 }
 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Kanit", sans-serif;
+}
+
+p {
+  font-family: "Roboto", sans-serif;
+}
+
+label {
+  font-family: "Kanit", sans-serif;
+}
+
+button {
+  background-color: transparent;
+  border-color: transparent;
+  cursor: pointer;
+  font-family: "Kanit", sans-serif;
+}
+
+.btn-with-icon {
+  padding: 0.4em;
+  background-color: #d23000;
+  border: 1px solid #d23000;
+  font-size: clamp(1.4rem, 1.5vw, 5rem);
+  font-weight: 600;
+  text-align: center;
+  transition: all 200ms;
+  color: white;
+}
+.btn-with-icon-i {
+  color: white;
+  transition: all 200ms;
+}
+.btn-with-icon:hover {
+  background-color: #008c5c;
+  border-color: #008c5c;
+  color: #eee8a9;
+}
+.btn-with-icon:hover > * {
+  color: #eee8a9;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #2d62f2;
+  padding: 1em;
+  color: white;
+}
+header .header__title {
+  font-family: "Kanit", sans-serif;
+}
+header .btn-change-theme {
+  padding: 0.5em 0.7em;
+  border-radius: 50%;
+}
+
+.app-section .todo-list-form .form-div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5em;
+  margin: 1em;
+}
+.app-section .todo-list-form .form-div__label {
+  font-size: clamp(2rem, 1.7vw, 6rem);
+  font-weight: 700;
+}
+.app-section .todo-list-form .form-div__input {
+  border: 2px solid #d23000;
+  padding: 0.3em;
+  width: min(90%, 50rem);
+  font-family: "Roboto", sans-serif;
+  font-size: clamp(1.5rem, 1.5vw, 4rem);
+  font-weight: 600;
+  transition: all 200ms;
+}
+.app-section .todo-list-form .form-div__input:hover, .app-section .todo-list-form .form-div__input:focus {
+  border: 2px solid #008c5c;
+}
+.app-section .todo-list-form .form-div .btn-add-todo {
+  font-size: clamp(2rem, 1.7vw, 6rem);
+}
+.app-section .todo-list-container {
+  width: min(90%, 60em);
+  margin: 0 auto;
+  background-color: #eee8a9;
+}
+.app-section .todo-list-container .todo-list-item {
+  display: flex;
+  align-items: center;
+}
+.app-section .todo-list-container .todo-list-item .btn-check-todo {
+  display: block;
+  background-color: transparent;
+  padding: 0.5rem 0.7rem;
+  border-radius: 50%;
+}
+.app-section .todo-list-container .todo-list-item__p {
+  font-size: clamp(1.5rem, 1.5vw, 4rem);
+  font-family: "Kanit", sans-serif;
+  font-weight: 500;
+}
+.app-section .todo-list-container .todo-list-item .btn-remove-todo {
+  display: block;
+  margin-left: auto;
+}
+
 /*# sourceMappingURL=styles.css.map */

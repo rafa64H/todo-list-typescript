@@ -1,5 +1,16 @@
-:root {
-}
+$main-font: 'Kanit', sans-serif;
+$second-font: 'Roboto', sans-serif;
+
+//light theme colors
+$first-color: #2d62f2;
+$second-color: #d23000;
+$third-color: #008c5c;
+$fourth-color: #eee8a9;
+
+//Dark theme colors
+$first-dark-color: #0040ef;
+$second-dark-color: #484554;
+$third-dark-color: #ada9bb;
 
 *,
 *::before,
@@ -7,4 +18,143 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: $main-font;
+}
+
+p {
+  font-family: $second-font;
+}
+
+label {
+  font-family: $main-font;
+}
+
+button {
+  background-color: transparent;
+  border-color: transparent;
+  cursor: pointer;
+  font-family: $main-font;
+}
+
+.btn-with-icon {
+  padding: 0.4em;
+  background-color: $second-color;
+  border: 1px solid $second-color;
+
+  font-size: clamp(1.4rem, 1.5vw, 5rem);
+  font-weight: 600;
+  text-align: center;
+
+  transition: all 200ms;
+  color: white;
+
+  &-i {
+    color: white;
+    transition: all 200ms;
+  }
+
+  &:hover {
+    background-color: $third-color;
+    border-color: $third-color;
+    color: $fourth-color;
+    & > * {
+      color: $fourth-color;
+    }
+  }
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  background-color: $first-color;
+  padding: 1em;
+  color: white;
+
+  .header__title {
+    font-family: $main-font;
+  }
+
+  .btn-change-theme {
+    padding: 0.5em 0.7em;
+    border-radius: 50%;
+  }
+}
+
+.app-section {
+  .todo-list-form {
+    .form-div {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5em;
+
+      margin: 1em;
+
+      &__label {
+        font-size: clamp(2rem, 1.7vw, 6rem);
+        font-weight: 700;
+      }
+
+      &__input {
+        border: 2px solid $second-color;
+        padding: 0.3em;
+        width: min(90%, 50rem);
+
+        font-family: $second-font;
+        font-size: clamp(1.5rem, 1.5vw, 4rem);
+        font-weight: 600;
+
+        transition: all 200ms;
+
+        &:hover,
+        &:focus {
+          border: 2px solid $third-color;
+        }
+      }
+
+      .btn-add-todo {
+        font-size: clamp(2rem, 1.7vw, 6rem);
+      }
+    }
+  }
+
+  .todo-list-container {
+    width: min(90%, 60em);
+    margin: 0 auto;
+    background-color: $fourth-color;
+
+    .todo-list {
+      &-item {
+        display: flex;
+        align-items: center;
+
+        .btn-check-todo {
+          display: block;
+          background-color: transparent;
+          padding: 0.5rem 0.7rem;
+          border-radius: 50%;
+        }
+
+        &__p {
+          font-size: clamp(1.5rem, 1.5vw, 4rem);
+          font-family: $main-font;
+          font-weight: 500;
+        }
+
+        .btn-remove-todo {
+          display: block;
+          margin-left: auto;
+        }
+      }
+    }
+  }
 }
