@@ -130,7 +130,10 @@ header .btn-change-theme {
   justify-content: space-between;
 }
 .app-section .todo-list-container .todo-list {
+  height: 30em;
+  padding: 0 1em;
   background-color: #eee8a9;
+  overflow-y: scroll;
 }
 .app-section .todo-list-container .todo-list-item {
   display: flex;
@@ -170,19 +173,10 @@ header .btn-change-theme {
   display: block;
   margin-left: auto;
 }
-.app-section .todo-list-container .buttons-move-list {
-  display: flex;
-  align-items: center;
-}
-.app-section .todo-list-container .buttons-move-list .btn-move-list:first-child {
-  margin-right: 0.7em;
-}
-.app-section .todo-list-container .buttons-move-list .index-list {
-  margin-left: 0.7em;
-  font-weight: 500;
-}
-.app-section .todo-list-container .buttons-move-list .btn-clear-completed {
-  margin-left: auto;
+.app-section .todo-list-container .btn-clear-completed {
+  display: block;
+  text-align: center;
+  margin: 0 auto;
 }
 
 footer {

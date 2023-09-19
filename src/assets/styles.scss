@@ -170,7 +170,10 @@ header {
     }
 
     .todo-list {
+      height: 30em;
+      padding: 0 1em;
       background-color: $fourth-color;
+      overflow-y: scroll;
 
       &-item {
         display: flex;
@@ -221,22 +224,10 @@ header {
       }
     }
 
-    .buttons-move-list {
-      display: flex;
-      align-items: center;
-
-      .btn-move-list:first-child {
-        margin-right: 0.7em;
-      }
-
-      .index-list {
-        margin-left: 0.7em;
-        font-weight: 500;
-      }
-
-      .btn-clear-completed {
-        margin-left: auto;
-      }
+    .btn-clear-completed {
+      display: block;
+      text-align: center;
+      margin: 0 auto;
     }
   }
 }
