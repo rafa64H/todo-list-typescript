@@ -23,40 +23,201 @@
     <link rel="stylesheet" href="src/assets/styles.css" />
     <title>Todo list</title>
   </head>
-  <body>
-    <header>
+  <body data-dark-theme="false">
+    <header data-dark-theme="false">
       <h1 class="header__title">Todo list</h1>
-      <button class="btn-with-icon btn-change-theme">
+      <button
+        class="btn-with-icon btn-change-theme"
+        data-change-theme-button
+        data-dark-theme="false"
+      >
         <i class="fa-solid fa-eye btn-with-icon-i"></i>
       </button>
     </header>
 
-    <section class="app-section">
+    <section class="app-section" data-dark-theme="false">
       <form action="" class="todo-list-form">
         <div class="form-div">
           <label for="input-text" class="form-div__label"
             >Write your todo:</label
           >
           <input type="text" id="input-text" class="form-div__input" />
-          <button class="btn-with-icon btn-add-todo">
+          <button class="btn-with-icon btn-add-todo" data-dark-theme="false">
             <i class="fa-solid fa-arrow-right"></i>
           </button>
         </div>
       </form>
 
       <section class="todo-list-container">
+        <div class="title-and-filters-container">
+          <h2>Todo list:</h2>
+
+          <div class="filters-container">
+            <button class="btn-without-icon" data-dark-theme="false">
+              Show all
+            </button>
+            <button class="btn-without-icon" data-dark-theme="false">
+              Show undone
+            </button>
+            <button class="btn-without-icon" data-dark-theme="false">
+              Show completed
+            </button>
+          </div>
+        </div>
+
         <ul class="todo-list">
           <li class="todo-list-item">
-            <button class="btn-with-icon btn-check-todo">
+            <button
+              class="btn-with-icon btn-check-todo"
+              data-checked-todo="true"
+              data-dark-theme="false"
+            >
               <i class="fa-solid fa-check btn-with-icon-i"></i>
             </button>
-            <p class="todo-list-item__p">I have to do this thing</p>
-            <button class="btn-with-icon btn-remove-todo">
+            <p class="todo-list-item__p">
+              I have to do this thing I have to do this thing I have to do this
+              thing I have to do this thing
+            </p>
+            <button
+              class="btn-with-icon btn-remove-todo"
+              data-dark-theme="false"
+            >
+              <i class="fa-solid fa-trash btn-with-icon-i"></i>
+            </button>
+          </li>
+
+          <li class="todo-list-item">
+            <button
+              class="btn-with-icon btn-check-todo"
+              data-checked-todo="true"
+              data-dark-theme="false"
+            >
+              <i class="fa-solid fa-check btn-with-icon-i"></i>
+            </button>
+            <p class="todo-list-item__p">
+              I have to do this thing I have to do this thing I have to do this
+              thing I have to do this thing
+            </p>
+            <button
+              class="btn-with-icon btn-remove-todo"
+              data-dark-theme="false"
+            >
+              <i class="fa-solid fa-trash btn-with-icon-i"></i>
+            </button>
+          </li>
+
+          <li class="todo-list-item">
+            <button
+              class="btn-with-icon btn-check-todo"
+              data-checked-todo="true"
+              data-dark-theme="false"
+            >
+              <i class="fa-solid fa-check btn-with-icon-i"></i>
+            </button>
+            <p class="todo-list-item__p">
+              I have to do this thing I have to do this thing I have to do this
+              thing I have to do this thing
+            </p>
+            <button
+              class="btn-with-icon btn-remove-todo"
+              data-dark-theme="false"
+            >
+              <i class="fa-solid fa-trash btn-with-icon-i"></i>
+            </button>
+          </li>
+
+          <li class="todo-list-item">
+            <button
+              class="btn-with-icon btn-check-todo"
+              data-checked-todo="true"
+              data-dark-theme="false"
+            >
+              <i class="fa-solid fa-check btn-with-icon-i"></i>
+            </button>
+            <p class="todo-list-item__p">
+              I have to do this thing I have to do this thing I have to do this
+              thing I have to do this thing
+            </p>
+            <button
+              class="btn-with-icon btn-remove-todo"
+              data-dark-theme="false"
+            >
+              <i class="fa-solid fa-trash btn-with-icon-i"></i>
+            </button>
+          </li>
+
+          <li class="todo-list-item">
+            <button
+              class="btn-with-icon btn-check-todo"
+              data-checked-todo="true"
+              data-dark-theme="false"
+            >
+              <i class="fa-solid fa-check btn-with-icon-i"></i>
+            </button>
+            <p class="todo-list-item__p">
+              I have to do this thing I have to do this thing I have to do this
+              thing I have to do this thing
+            </p>
+            <button
+              class="btn-with-icon btn-remove-todo"
+              data-dark-theme="false"
+            >
+              <i class="fa-solid fa-trash btn-with-icon-i"></i>
+            </button>
+          </li>
+
+          <li class="todo-list-item">
+            <button
+              class="btn-with-icon btn-check-todo"
+              data-checked-todo="true"
+              data-dark-theme="false"
+            >
+              <i class="fa-solid fa-check btn-with-icon-i"></i>
+            </button>
+            <p class="todo-list-item__p">
+              I have to do this thing I have to do this thing I have to do this
+              thing I have to do this thing
+            </p>
+            <button
+              class="btn-with-icon btn-remove-todo"
+              data-dark-theme="false"
+            >
               <i class="fa-solid fa-trash btn-with-icon-i"></i>
             </button>
           </li>
         </ul>
+
+        <div class="buttons-move-list">
+          <button class="btn-with-icon btn-move-list" data-dark-theme="false">
+            <i class="fa-solid fa-arrow-left"></i>
+          </button>
+          <button class="btn-with-icon btn-move-list" data-dark-theme="false">
+            <i class="fa-solid fa-arrow-right"></i>
+          </button>
+          <p class="index-list">1/10</p>
+          <button
+            class="btn-without-icon btn-clear-completed"
+            data-dark-theme="false"
+          >
+            Clear completed
+          </button>
+        </div>
       </section>
     </section>
+
+    <footer data-dark-theme="false">
+      <p class="footer__p">
+        To do list app made with Typescript, Sass and HTML
+      </p>
+      <p class="footer__p">
+        Made by
+        <a
+          href="https://github.com/rafa64H"
+          target="_blank"
+          class="footer__link"
+          >Rafael Pacheco</a
+        >
+      </p>
+    </footer>
   </body>
 </html>

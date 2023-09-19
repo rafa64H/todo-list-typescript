@@ -9,8 +9,9 @@ $fourth-color: #eee8a9;
 
 //Dark theme colors
 $first-dark-color: #0040ef;
-$second-dark-color: #484554;
-$third-dark-color: #ada9bb;
+$second-dark-color: #1c1a27;
+$third-dark-color: #484554;
+$fourth-dark-color: #ada9bb;
 
 *,
 *::before,
@@ -67,6 +68,33 @@ button {
     & > * {
       color: $fourth-color;
     }
+  }
+}
+
+.btn-without-icon {
+  padding: 0.2em;
+  background-color: transparent;
+
+  font-size: clamp(1rem, 1.3vw, 3rem);
+  font-weight: 600;
+  text-align: center;
+
+  transition: all 200ms;
+  color: white;
+
+  &::after {
+    display: block;
+    content: ('');
+
+    padding: 0.05em 0;
+    width: 100%;
+    background-color: $fourth-color;
+
+    transform: scaleX(0);
+    transition: all 200ms;
+  }
+  &:hover::after {
+    transform: scaleX(1);
   }
 }
 
@@ -130,24 +158,60 @@ header {
   .todo-list-container {
     width: min(90%, 60em);
     margin: 0 auto;
-    background-color: $fourth-color;
+    padding: 0 1em 1em 1em;
+    background-color: $first-color;
+
+    color: white;
+
+    .title-and-filters-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
 
     .todo-list {
+      background-color: $fourth-color;
+
       &-item {
         display: flex;
         align-items: center;
 
+        margin: 1em 0;
+        padding: 0 0.25em;
+        border-bottom: 1px solid $second-color;
+
+        &:last-child {
+          border-bottom: 0 solid transparent;
+        }
+
+        color: black;
+
         .btn-check-todo {
           display: block;
+
+          padding: 0.5rem 1.3rem;
           background-color: transparent;
-          padding: 0.5rem 0.7rem;
           border-radius: 50%;
+        }
+        [data-checked-todo='true'] {
+          padding: 0.5rem 0.7rem;
+          background-color: $second-color;
+          &:hover {
+            background-color: $third-color;
+          }
         }
 
         &__p {
+          width: 80%;
+          margin-left: 1em;
+
           font-size: clamp(1.5rem, 1.5vw, 4rem);
           font-family: $main-font;
           font-weight: 500;
+
+          &--not-found {
+            margin: 2em;
+          }
         }
 
         .btn-remove-todo {
@@ -156,5 +220,120 @@ header {
         }
       }
     }
+
+    .buttons-move-list {
+      display: flex;
+      align-items: center;
+
+      .btn-move-list:first-child {
+        margin-right: 0.7em;
+      }
+
+      .index-list {
+        margin-left: 0.7em;
+        font-weight: 500;
+      }
+
+      .btn-clear-completed {
+        margin-left: auto;
+      }
+    }
   }
+}
+
+footer {
+  background-color: $first-color;
+  padding: 1em;
+  margin-top: 10em;
+
+  color: white;
+  font-size: clamp(1rem, 1.3vw, 3rem);
+  font-weight: 500;
+
+  .footer__link {
+    color: $fourth-color;
+    font-family: $main-font;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+//====================
+//Dark theme styles
+//====================
+body[data-dark-theme='true'] {
+  background-color: $second-dark-color;
+}
+
+.btn-with-icon[data-dark-theme='true'] {
+  background-color: $second-dark-color;
+  .btn-with-icon-i {
+  }
+  &:hover {
+    background-color: $third-dark-color;
+    border-color: $third-color;
+    color: $fourth-color;
+    & > * {
+      color: $second-color;
+    }
+  }
+}
+
+.btn-without-icon {
+  color: $fourth-color;
+}
+
+header[data-dark-theme='true'] {
+  background-color: $first-dark-color;
+  color: $fourth-color;
+}
+
+.app-section[data-dark-theme='true'] {
+  color: white;
+
+  .todo-list-form {
+    .form-div {
+      &__input {
+        background-color: $third-dark-color;
+        color: $fourth-color;
+      }
+
+      .btn-add-todo {
+        background-color: $third-dark-color;
+
+        &:hover {
+          background-color: $first-dark-color;
+        }
+      }
+    }
+  }
+
+  .todo-list-container {
+    background-color: $first-dark-color;
+    color: $fourth-color;
+
+    .todo-list {
+      background-color: $second-dark-color;
+
+      &-item {
+        color: $fourth-color;
+        border-bottom: 1px solid $third-dark-color;
+
+        [data-checked-todo='true'] {
+          background-color: $third-dark-color;
+          &:hover {
+            background-color: $second-dark-color;
+          }
+        }
+      }
+    }
+  }
+}
+
+footer[data-dark-theme='true'] {
+  background-color: $first-dark-color;
+  color: $fourth-color;
 }
