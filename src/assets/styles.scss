@@ -211,6 +211,8 @@ header {
           font-family: $main-font;
           font-weight: 500;
 
+          word-wrap: break-word;
+
           &--not-found {
             margin: 2em;
           }

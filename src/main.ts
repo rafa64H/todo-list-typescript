@@ -7,11 +7,17 @@ import {
 import { Todo } from './types';
 
 export const globalVariables = {
-  allToDos: [] as Todo[],
+  allToDos:
+    JSON.parse(localStorage.getItem('allToDos') as string) === null
+      ? []
+      : JSON.parse(localStorage.getItem('allToDos') as string),
   darkTheme: (getLocalStorageKeys().darkTheme === 'true') as boolean,
 };
 
+console.log(globalVariables.allToDos);
+
 setDarkTheme(true);
+createTodoItems(globalVariables.allToDos);
 
 const changeThemeBtn = document.querySelector('[data-change-theme-button]');
 

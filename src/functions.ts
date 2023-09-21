@@ -2,6 +2,18 @@ import { globalVariables } from './main';
 import { Todo } from './types';
 import { v4 as uuidv4 } from 'uuid';
 
+export function getLocalStorageKeys(): {
+  darkTheme: string | null;
+  allToDos: string | null;
+} {
+  const keysObj = {
+    darkTheme: localStorage.getItem('darkTheme'),
+    allToDos: localStorage.getItem('allToDos'),
+  };
+
+  return keysObj;
+}
+
 export function setDarkTheme(loadingPage: boolean): void {
   const body = document.querySelector('[data-body]');
   const header = document.querySelector('[data-header]');
@@ -32,16 +44,6 @@ export function setDarkTheme(loadingPage: boolean): void {
   });
 }
 
-export function getLocalStorageKeys(): {
-  darkTheme: string | null;
-} {
-  const keysObj: { darkTheme: string | null } = {
-    darkTheme: localStorage.getItem('darkTheme'),
-  };
-
-  return keysObj;
-}
-
 export function handleSubmitFormAddTodo(
   valueInput: string | undefined
 ): Todo[] {
@@ -57,11 +59,13 @@ export function handleSubmitFormAddTodo(
 
   createTodoItems(newAllToDos);
 
+  localStorage.setItem(`allToDos`, JSON.stringify(newAllToDos));
+
   return newAllToDos;
 }
 
 export function createTodoItems(todoItemsArray: Todo[]): void {
-  globalVariables.allToDos.map((todoObjItem) => {
+  globalVariables.allToDos.map((todoObjItem: Todo) => {
     const previousTodoElement = document.getElementById(`${todoObjItem.id}`);
 
     previousTodoElement?.remove();
@@ -101,7 +105,7 @@ export function createSingleTodoItem(todoObjItem: Todo): void {
 
   btnCheckElement.addEventListener('click', (): void => {
     const itemInAllTodos = globalVariables.allToDos.filter(
-      (todo) => todo.id === liElement.id
+      (todo: Todo) => todo.id === liElement.id
     )[0];
 
     if (itemInAllTodos.checked) {
@@ -115,14 +119,16 @@ export function createSingleTodoItem(todoObjItem: Todo): void {
       btnCheckElement.setAttribute('data-checked-todo', 'true');
       btnCheckElementIcon.classList.add('fa-check');
     }
+    localStorage.setItem(`allToDos`, JSON.stringify(globalVariables.allToDos));
   });
 
   btnDeleteElement.addEventListener('click', (): void => {
     const filteredAllTodos = globalVariables.allToDos.filter(
-      (todo) => todo.id !== liElement.id
+      (todo: Todo) => todo.id !== liElement.id
     );
 
     globalVariables.allToDos = filteredAllTodos;
+    localStorage.setItem(`allToDos`, JSON.stringify(globalVariables.allToDos));
 
     liElement.remove();
   });

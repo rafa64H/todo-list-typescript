@@ -164,6 +164,7 @@ header .btn-change-theme {
   font-size: clamp(1.5rem, 1.5vw, 4rem);
   font-family: "Kanit", sans-serif;
   font-weight: 500;
+  word-wrap: break-word;
 }
 .app-section .todo-list-container .todo-list-item__p--not-found {
   margin: 2em;
