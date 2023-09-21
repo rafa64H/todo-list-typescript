@@ -5,16 +5,17 @@ import {
 } from './functions';
 import { Todo } from './types';
 
-let darkTheme: boolean = getLocalStorageKeys().darkTheme === 'true';
+export const globalVariables = {
+  allToDos: [] as Todo[],
+  darkTheme: (getLocalStorageKeys().darkTheme === 'true') as boolean,
+};
 
-let allToDos: Todo[] = [];
-
-setDarkTheme(darkTheme, true);
+setDarkTheme(true);
 
 const changeThemeBtn = document.querySelector('[data-change-theme-button]');
 
 changeThemeBtn?.addEventListener('click', () => {
-  darkTheme = setDarkTheme(darkTheme, false);
+  setDarkTheme(false);
 });
 
 const formAddToDo = document.querySelector('[data-form-add-todo]');
@@ -26,5 +27,5 @@ formAddToDo?.addEventListener('submit', (e) => {
     '[data-input-add-todo]'
   );
 
-  allToDos = handleSubmitFormAddTodo(target?.value, allToDos, darkTheme);
+  globalVariables.allToDos = handleSubmitFormAddTodo(target?.value);
 });

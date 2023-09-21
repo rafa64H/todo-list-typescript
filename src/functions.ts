@@ -1,10 +1,8 @@
+import { globalVariables } from './main';
 import { Todo } from './types';
 import { v4 as uuidv4 } from 'uuid';
 
-export function setDarkTheme(
-  darkTheme: boolean,
-  loadingPage: boolean
-): boolean {
+export function setDarkTheme(loadingPage: boolean): void {
   const body = document.querySelector('[data-body]');
   const header = document.querySelector('[data-header]');
   const appSection = document.querySelector('[data-app-section]');
@@ -14,21 +12,24 @@ export function setDarkTheme(
     '.btn-with-icon, .btn-without-icon'
   );
 
-  darkTheme = loadingPage ? darkTheme : !darkTheme;
+  globalVariables.darkTheme = loadingPage
+    ? globalVariables.darkTheme
+    : !globalVariables.darkTheme;
 
-  localStorage.setItem('darkTheme', `${darkTheme}`);
+  localStorage.setItem('darkTheme', `${globalVariables.darkTheme}`);
 
-  body?.setAttribute(`data-dark-theme`, `${darkTheme}`);
-  header?.setAttribute(`data-dark-theme`, `${darkTheme}`);
-  appSection?.setAttribute(`data-dark-theme`, `${darkTheme}`);
-  footer?.setAttribute(`data-dark-theme`, `${darkTheme}`);
-  changeThemeBtn?.setAttribute(`data-dark-theme`, `${darkTheme}`);
+  body?.setAttribute(`data-dark-theme`, `${globalVariables.darkTheme}`);
+  header?.setAttribute(`data-dark-theme`, `${globalVariables.darkTheme}`);
+  appSection?.setAttribute(`data-dark-theme`, `${globalVariables.darkTheme}`);
+  footer?.setAttribute(`data-dark-theme`, `${globalVariables.darkTheme}`);
+  changeThemeBtn?.setAttribute(
+    `data-dark-theme`,
+    `${globalVariables.darkTheme}`
+  );
 
   allBtns.forEach((btn) => {
-    btn?.setAttribute(`data-dark-theme`, `${darkTheme}`);
+    btn?.setAttribute(`data-dark-theme`, `${globalVariables.darkTheme}`);
   });
-
-  return darkTheme;
 }
 
 export function getLocalStorageKeys(): {
@@ -42,11 +43,9 @@ export function getLocalStorageKeys(): {
 }
 
 export function handleSubmitFormAddTodo(
-  valueInput: string | undefined,
-  allToDos: Todo[],
-  darkTheme: boolean
+  valueInput: string | undefined
 ): Todo[] {
-  if (!valueInput) return allToDos;
+  if (!valueInput) return globalVariables.allToDos;
 
   const newTodo: Todo = {
     id: `${uuidv4()}`,
@@ -54,17 +53,14 @@ export function handleSubmitFormAddTodo(
     checked: false,
   };
 
-  const newAllToDos: Todo[] = [newTodo, ...allToDos];
+  const newAllToDos: Todo[] = [newTodo, ...globalVariables.allToDos];
 
-  createTodoItems(newAllToDos, darkTheme);
+  createTodoItems(newAllToDos);
 
   return newAllToDos;
 }
 
-export function createTodoItems(
-  todoItemsArray: Todo[],
-  darkTheme: boolean
-): void {
+export function createTodoItems(todoItemsArray: Todo[]): void {
   todoItemsArray.map((todoObjItem) => {
     const previousTodoElement = document.getElementById(`${todoObjItem.id}`);
 
@@ -74,7 +70,7 @@ export function createTodoItems(
   });
 }
 
-export function createSingleTodoItem(todoObjItem: Todo) {
+export function createSingleTodoItem(todoObjItem: Todo): void {
   const todoListElement = document.querySelector('[data-todo-list]');
 
   const liElement = document.createElement('li');
@@ -96,6 +92,16 @@ export function createSingleTodoItem(todoObjItem: Todo) {
 
   btnDeleteElement.classList.add('btn-with-icon', 'btn-remove-todo');
   btnDeleteElementIcon.classList.add('fa-solid', 'fa-trash');
+
+  btnDeleteElement.addEventListener('click', (e) => {
+    const filteredAllTodos = globalVariables.allToDos.filter(
+      (todo) => todo.id !== liElement.id
+    );
+
+    globalVariables.allToDos = filteredAllTodos;
+
+    liElement.remove();
+  });
 
   liElement.append(btnCheckElement);
   liElement.append(textLiElement);
