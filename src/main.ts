@@ -47,7 +47,7 @@ const showUndoneTodosBtn = document.querySelector('[data-show-undone-btn]');
 
 showUndoneTodosBtn?.addEventListener('click', () => {
   const undoneTodoItems = globalVariables.allToDos.filter(
-    (todoObjItem) => todoObjItem.checked === false
+    (todoObjItem: Todo) => todoObjItem.checked === false
   );
 
   createTodoItems(undoneTodoItems);
@@ -59,7 +59,7 @@ const showCompletedTodosBtn = document.querySelector(
 
 showCompletedTodosBtn?.addEventListener('click', () => {
   const checkedTodoItems = globalVariables.allToDos.filter(
-    (todoObjItem) => todoObjItem.checked === true
+    (todoObjItem: Todo) => todoObjItem.checked === true
   );
 
   createTodoItems(checkedTodoItems);
@@ -71,7 +71,7 @@ const clearCompletedTodosBtn = document.querySelector(
 
 clearCompletedTodosBtn?.addEventListener('click', () => {
   const filteredAllTodos = globalVariables.allToDos.filter(
-    (todoObjItem) => todoObjItem.checked === false
+    (todoObjItem: Todo) => todoObjItem.checked === false
   );
 
   createTodoItems(filteredAllTodos);
