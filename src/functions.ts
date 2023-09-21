@@ -61,11 +61,13 @@ export function handleSubmitFormAddTodo(
 }
 
 export function createTodoItems(todoItemsArray: Todo[]): void {
-  todoItemsArray.map((todoObjItem) => {
+  globalVariables.allToDos.map((todoObjItem) => {
     const previousTodoElement = document.getElementById(`${todoObjItem.id}`);
 
     previousTodoElement?.remove();
+  });
 
+  todoItemsArray.map((todoObjItem) => {
     createSingleTodoItem(todoObjItem);
   });
 }
@@ -86,6 +88,10 @@ export function createSingleTodoItem(todoObjItem: Todo): void {
   btnCheckElement.classList.add('btn-with-icon', 'btn-check-todo');
   btnCheckElement.setAttribute('data-checked-todo', 'false');
   btnCheckElementIcon.classList.add('fa-solid', 'btn-with-icon-i');
+  if (todoObjItem.checked) {
+    btnCheckElement.setAttribute('data-checked-todo', 'true');
+    btnCheckElementIcon.classList.add('fa-check');
+  }
 
   textLiElement.classList.add('todo-list-item__p');
   textLiElement.textContent = `${todoObjItem.text}`;
