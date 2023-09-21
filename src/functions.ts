@@ -93,7 +93,25 @@ export function createSingleTodoItem(todoObjItem: Todo): void {
   btnDeleteElement.classList.add('btn-with-icon', 'btn-remove-todo');
   btnDeleteElementIcon.classList.add('fa-solid', 'fa-trash');
 
-  btnDeleteElement.addEventListener('click', (e) => {
+  btnCheckElement.addEventListener('click', (): void => {
+    const itemInAllTodos = globalVariables.allToDos.filter(
+      (todo) => todo.id === liElement.id
+    )[0];
+
+    if (itemInAllTodos.checked) {
+      itemInAllTodos.checked = false;
+
+      btnCheckElement.setAttribute('data-checked-todo', 'false');
+      btnCheckElementIcon.classList.remove('fa-check');
+    } else {
+      itemInAllTodos.checked = true;
+
+      btnCheckElement.setAttribute('data-checked-todo', 'true');
+      btnCheckElementIcon.classList.add('fa-check');
+    }
+  });
+
+  btnDeleteElement.addEventListener('click', (): void => {
     const filteredAllTodos = globalVariables.allToDos.filter(
       (todo) => todo.id !== liElement.id
     );

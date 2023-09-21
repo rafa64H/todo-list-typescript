@@ -148,12 +148,11 @@ header .btn-change-theme {
 }
 .app-section .todo-list-container .todo-list-item .btn-check-todo {
   display: block;
-  padding: 0.5rem 1.3rem;
+  width: 3.2rem;
   background-color: transparent;
   border-radius: 50%;
 }
 .app-section .todo-list-container .todo-list-item [data-checked-todo=true] {
-  padding: 0.5rem 0.7rem;
   background-color: #d23000;
 }
 .app-section .todo-list-container .todo-list-item [data-checked-todo=true]:hover {
