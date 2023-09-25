@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+      integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+      rel="stylesheet"
+    />
+
+    
+    
+    
+    <title>Todo list</title>
+    <script type="module" crossorigin src="/assets/index-2331f5be.js"></script>
+    <link rel="stylesheet" href="/assets/index-f115e32f.css">
+  </head>
+  <body data-dark-theme="false" data-body>
+    <header data-dark-theme="false" data-header>
+      <h1 class="header__title">Todo list</h1>
+      <button
+        class="btn-with-icon btn-change-theme"
+        data-change-theme-button
+        data-dark-theme="false"
+      >
+        <i class="fa-solid fa-eye btn-with-icon-i"></i>
+      </button>
+    </header>
+
+    <section class="app-section" data-dark-theme="false" data-app-section>
+      <form class="todo-list-form" data-form-add-todo>
+        <div class="form-div">
+          <label for="input-text" class="form-div__label"
+            >Write your todo:</label
+          >
+          <input
+            type="text"
+            id="input-text"
+            class="form-div__input"
+            data-input-add-todo
+          />
+          <button
+            type="submit"
+            class="btn-with-icon btn-add-todo"
+            data-dark-theme="false"
+          >
+            <i class="fa-solid fa-arrow-right"></i>
+          </button>
+        </div>
+      </form>
+
+      <section class="todo-list-container">
+        <div class="title-and-filters-container">
+          <h2>Todo list:</h2>
+
+          <div class="filters-container">
+            <button
+              class="btn-without-icon"
+              data-dark-theme="false"
+              data-show-all-btn
+            >
+              Show all
+            </button>
+            <button
+              class="btn-without-icon"
+              data-dark-theme="false"
+              data-show-undone-btn
+            >
+              Show undone
+            </button>
+            <button
+              class="btn-without-icon"
+              data-dark-theme="false"
+              data-show-completed-btn
+            >
+              Show completed
+            </button>
+          </div>
+        </div>
+
+        <ul class="todo-list" data-todo-list>
+          <!-- Template of a todo
+          <li class="todo-list-item">
+            <button
+              class="btn-with-icon btn-check-todo"
+              data-checked-todo="true"
+              data-dark-theme="false"
+            >
+              <i class="fa-solid fa-check btn-with-icon-i"></i>
+            </button>
+            <p class="todo-list-item__p">
+              I have to do this thing
+            </p>
+            <button
+              class="btn-with-icon btn-remove-todo"
+              data-dark-theme="false"
+            >
+              <i class="fa-solid fa-trash btn-with-icon-i"></i>
+            </button>
+          </li>
+
+          -->
+        </ul>
+
+        <button
+          class="btn-without-icon btn-clear-completed"
+          data-dark-theme="false"
+          data-clear-completed-btn
+        >
+          Clear completed
+        </button>
+      </section>
+    </section>
+
+    <footer data-dark-theme="false" data-footer>
+      <p class="footer__p">
+        To do list app made with Typescript, Sass and HTML
+      </p>
+      <p class="footer__p">
+        Made by
+        <a
+          href="https://github.com/rafa64H"
+          target="_blank"
+          class="footer__link"
+          >Rafael Pacheco</a
+        >
+      </p>
+    </footer>
+  </body>
+</html>
