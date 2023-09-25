@@ -124,41 +124,37 @@ header .btn-change-theme {
   background-color: #2d62f2;
   color: white;
 }
-.app-section .todo-list-container .title-and-filters-container {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
 .app-section .todo-list-container .todo-list {
   height: 30em;
   padding: 0 1em;
   background-color: #eee8a9;
   overflow-y: scroll;
 }
-.app-section .todo-list-container .todo-list-item {
+.app-section .todo-list-container .todo-list .todo-list-item {
   display: flex;
+  flex-direction: column;
   align-items: center;
   margin: 1em 0;
   padding: 0 0.25em;
   border-bottom: 1px solid #d23000;
   color: black;
 }
-.app-section .todo-list-container .todo-list-item:last-child {
+.app-section .todo-list-container .todo-list .todo-list-item:last-child {
   border-bottom: 0 solid transparent;
 }
-.app-section .todo-list-container .todo-list-item .btn-check-todo {
+.app-section .todo-list-container .todo-list .todo-list-item .btn-check-todo {
   display: block;
   width: 3.2rem;
   background-color: transparent;
   border-radius: 50%;
 }
-.app-section .todo-list-container .todo-list-item [data-checked-todo=true] {
+.app-section .todo-list-container .todo-list .todo-list-item [data-checked-todo=true] {
   background-color: #d23000;
 }
-.app-section .todo-list-container .todo-list-item [data-checked-todo=true]:hover {
+.app-section .todo-list-container .todo-list .todo-list-item [data-checked-todo=true]:hover {
   background-color: #008c5c;
 }
-.app-section .todo-list-container .todo-list-item__p {
+.app-section .todo-list-container .todo-list .todo-list-item__p {
   width: 80%;
   margin-left: 1em;
   font-size: clamp(1.5rem, 1.5vw, 4rem);
@@ -166,12 +162,11 @@ header .btn-change-theme {
   font-weight: 500;
   word-wrap: break-word;
 }
-.app-section .todo-list-container .todo-list-item__p--not-found {
+.app-section .todo-list-container .todo-list .todo-list-item__p--not-found {
   margin: 2em;
 }
-.app-section .todo-list-container .todo-list-item .btn-remove-todo {
+.app-section .todo-list-container .todo-list .todo-list-item .btn-remove-todo {
   display: block;
-  margin-left: auto;
 }
 .app-section .todo-list-container .btn-clear-completed {
   display: block;
@@ -255,6 +250,20 @@ header[data-dark-theme=true] {
 footer[data-dark-theme=true] {
   background-color: #0040ef;
   color: #eee8a9;
+}
+
+@media screen and (min-width: 600px) {
+  .title-and-filters-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .todo-list-item {
+    flex-direction: row !important;
+  }
+  .btn-remove-todo {
+    margin-left: auto;
+  }
 }
 
 /*# sourceMappingURL=styles.css.map */

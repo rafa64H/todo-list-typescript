@@ -164,9 +164,6 @@ header {
     color: white;
 
     .title-and-filters-container {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
     }
 
     .todo-list {
@@ -175,8 +172,9 @@ header {
       background-color: $fourth-color;
       overflow-y: scroll;
 
-      &-item {
+      .todo-list-item {
         display: flex;
+        flex-direction: column;
         align-items: center;
 
         margin: 1em 0;
@@ -220,7 +218,6 @@ header {
 
         .btn-remove-todo {
           display: block;
-          margin-left: auto;
         }
       }
     }
@@ -328,4 +325,19 @@ header[data-dark-theme='true'] {
 footer[data-dark-theme='true'] {
   background-color: $first-dark-color;
   color: $fourth-color;
+}
+
+@media screen and (min-width: 600px) {
+  .title-and-filters-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .todo-list-item {
+    flex-direction: row !important;
+  }
+
+  .btn-remove-todo {
+    margin-left: auto;
+  }
 }
